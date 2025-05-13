@@ -1,6 +1,6 @@
 # Wordbuild
 
-![Wordbuild Logo](https://via.placeholder.com/650x150?text=Wordbuild)
+[<img src="Wordbuild_logo.png" width="250"/>](/Wordbuild_logo.png)
 
 > An addictive word-building arcade game combining reflexes and vocabulary
 
