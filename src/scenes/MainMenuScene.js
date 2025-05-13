@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { loadHighScore } from '../utils/localStorageManager';
 
 export default class MainMenuScene extends Phaser.Scene {
     constructor() {
@@ -11,12 +12,22 @@ export default class MainMenuScene extends Phaser.Scene {
 
     create() {
         console.log('MainMenuScene: create');
-        this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 - 50, 'Wordbuild', {
+
+        // Display High Score
+        const highScore = loadHighScore();
+        this.add.text(this.cameras.main.width - 20, 20, `High Score: ${highScore}`,
+            {
+                font: '20px Exo 2',
+                fill: '#FFD166' // UI Accent color
+            }
+        ).setOrigin(1, 0); // Align to top-right
+
+        this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 - 100, 'Wordbuild', {
             font: '48px Bungee Shade', // Using specified title font
             fill: '#F7B801' // Using specified platform yellow color
         }).setOrigin(0.5);
 
-        const startButton = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 + 50, 'Start Game', {
+        const startButton = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 + 20, 'Start Game', {
             font: '32px Exo 2',
             fill: '#FFD166', // Using specified UI accent color
             backgroundColor: '#2D3047', // Using specified UI background color

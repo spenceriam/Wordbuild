@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2025-05-12
+### Added
+- `localStorageManager.js` utility for saving and loading data (e.g., high scores).
+- Integrated high score display into `MainMenuScene`.
+- Added a basic WebGL compatibility check in `BootScene` with a console warning for fallback to Canvas.
+
 ## [0.1.1] - 2025-05-12
 ### Added
 - Responsive layout improvements in `styles.css`.
