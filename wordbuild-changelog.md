@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.4] - 2025-05-12
+### Added
+- Created placeholder image files for `platform.png` and `letter_block.png` in `src/assets/images/`.
+- Updated `PreloadScene` to load image assets after fonts, reintroducing the loading bar for asset loading phase.
+- Added the `platform` sprite to `GameScene` as a static physics body positioned at the bottom center.
+
 ## [0.1.3] - 2025-05-12
 ### Added
 - Installed `webfontloader` dependency.

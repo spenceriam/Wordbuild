@@ -7,25 +7,34 @@ export default class GameScene extends Phaser.Scene {
 
     preload() {
         console.log('GameScene: preload');
-        // Load game-specific assets here if not loaded in PreloadScene
-        // For now, this can remain empty as PreloadScene will handle major assets.
+        // Assets are loaded in PreloadScene
     }
 
     create() {
         console.log('GameScene: create');
-        // Example text, can be replaced with actual game elements
-        this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, 'Game Scene - Let\'s Build Words!', {
+
+        // Get game dimensions
+        const { width, height } = this.sys.game.config;
+
+        // Add platform - positioned at bottom center
+        // Since it's physics-enabled, its origin is (0.5, 0.5) by default
+        this.platform = this.physics.add.staticImage(width / 2, height - 50, 'platform');
+        // You might need to adjust the Y position depending on the actual platform image height
+
+        // Optionally, scale the platform if needed (example)
+        // this.platform.setScale(2).refreshBody(); // refreshBody updates the physics body after scaling a static object
+
+        // Placeholder text (optional, can be removed)
+        this.add.text(width / 2, 50, 'Game Scene - Play Area', {
             font: '32px Exo 2',
-            fill: '#4ECDC4' // Using Word Frame color
+            fill: '#EF476F' // Use a theme color
         }).setOrigin(0.5);
 
-        // Example: Go back to Main Menu (useful for testing)
-        const backButton = this.add.text(this.cameras.main.width - 100, this.cameras.main.height - 30, 'Main Menu', {
-            font: '18px Exo 2',
+        // Button to go back to Main Menu
+        const backButton = this.add.text(width - 20, height - 20, 'Back to Menu', {
+            font: '20px Exo 2',
             fill: '#FFD166'
-        })
-        .setOrigin(0.5)
-        .setInteractive();
+        }).setOrigin(1, 1).setInteractive();
 
         backButton.on('pointerdown', () => {
             this.scene.start('MainMenuScene');
@@ -33,6 +42,6 @@ export default class GameScene extends Phaser.Scene {
     }
 
     update(time, delta) {
-        // Game loop logic here
+        // Game loop logic goes here
     }
 }
