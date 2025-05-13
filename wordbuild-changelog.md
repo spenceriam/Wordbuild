@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2025-05-12
+### Added
+- Installed `webfontloader` dependency.
+- Implemented web font loading in `PreloadScene.js` for 'Bungee Shade', 'Exo 2', 'Rubik', and 'Press Start 2P' from Google Fonts.
+- `PreloadScene` now displays a "Loading Fonts..." message and transitions upon font load completion or failure.
+
 ## [0.1.2] - 2025-05-12
 ### Added
 - `localStorageManager.js` utility for saving and loading data (e.g., high scores).

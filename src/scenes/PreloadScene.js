@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import WebFontLoader from 'webfontloader';
 
 export default class PreloadScene extends Phaser.Scene {
     constructor() {
@@ -8,63 +9,57 @@ export default class PreloadScene extends Phaser.Scene {
     preload() {
         console.log('PreloadScene: preload');
 
-        // Display a loading bar or a simple loading message
-        let progressBar = this.add.graphics();
-        let progressBox = this.add.graphics();
-        progressBox.fillStyle(0x222222, 0.8);
-        progressBox.fillRect(this.cameras.main.width / 2 - 160, this.cameras.main.height / 2 - 25, 320, 50);
-
-        let loadingText = this.make.text({
+        // Simple loading text while fonts are loading
+        const loadingText = this.make.text({
             x: this.cameras.main.width / 2,
-            y: this.cameras.main.height / 2 - 50,
-            text: 'Loading...', 
+            y: this.cameras.main.height / 2,
+            text: 'Loading Fonts...',
             style: {
-                font: '20px Exo 2',
+                font: '30px Exo 2', // Use a basic available font for the loader itself
                 fill: '#ffffff'
             }
         });
         loadingText.setOrigin(0.5, 0.5);
 
-        let percentText = this.make.text({
-            x: this.cameras.main.width / 2,
-            y: this.cameras.main.height / 2,
-            text: '0%',
-            style: {
-                font: '18px Exo 2',
-                fill: '#ffffff'
-            }
+        // Array of fonts to load
+        const fontsToLoad = ['Bungee Shade', 'Exo 2', 'Rubik', 'Press Start 2P'];
+
+        WebFontLoader.load({
+            google: {
+                families: fontsToLoad
+            },
+            active: () => {
+                console.log('PreloadScene: Fonts loaded successfully.');
+                loadingText.destroy();
+                // If you have other assets to load with Phaser's loader, start them here
+                // and then transition in this.load.on('complete')
+                // For now, just transition directly as we are only loading fonts in this step.
+                this.scene.start('MainMenuScene');
+            },
+            inactive: () => {
+                // This callback is triggered if the browser does not support web fonts
+                // or if none of the fonts could be loaded.
+                console.warn('PreloadScene: Fonts failed to load or are not supported. Using fallback fonts.');
+                loadingText.destroy();
+                this.scene.start('MainMenuScene'); // Proceed with fallback fonts
+            },
+            // fontloading: (familyName, fvd) => {
+            //     console.log('Loading font:', familyName, fvd);
+            // },
+            // fontactive: (familyName, fvd) => {
+            //     console.log('Font active:', familyName, fvd);
+            // },
+            // fontinactive: (familyName, fvd) => {
+            //     console.warn('Font inactive:', familyName, fvd);
+            // }
         });
-        percentText.setOrigin(0.5, 0.5);
 
-        this.load.on('progress', function (value) {
-            percentText.setText(parseInt(value * 100) + '%');
-            progressBar.clear();
-            progressBar.fillStyle(0xffffff, 1);
-            progressBar.fillRect(this.cameras.main.width / 2 - 150, this.cameras.main.height / 2 - 15, 300 * value, 30);
-        }, this);
-
-        this.load.on('complete', function () {
-            console.log('PreloadScene: load complete');
-            progressBar.destroy();
-            progressBox.destroy();
-            loadingText.destroy();
-            percentText.destroy();
-            this.scene.start('MainMenuScene'); // Or directly to GameScene for now
-        }, this);
-
-        // Example asset loading (replace with actual assets later)
-        // this.load.image('logo', 'assets/images/logo.png');
-        // this.load.audio('backgroundMusic', ['assets/audio/music.mp3', 'assets/audio/music.ogg']);
-
-        // Simulate loading time for demonstration if no assets are being loaded
-        // This helps to see the loading bar in action.
-        // Remove this in actual implementation when assets are present.
-        this.load.image('dummy', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=');
-
+        // Remove previous Phaser loader example if it was just for dummy assets
+        // The WebFontLoader handles its own loading indication or completion.
     }
 
     create() {
         console.log('PreloadScene: create');
-        // The 'complete' event in preload will trigger scene transition
+        // Scene transition is handled by WebFontLoader callbacks
     }
 }
