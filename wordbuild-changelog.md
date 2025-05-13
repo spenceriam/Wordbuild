@@ -12,12 +12,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic documentation files
 - Project requirements documentation
 
-## [0.1.0] - YYYY-MM-DD (Future)
+## [0.1.0] - 2025-05-12
 ### Added
-- Project setup and repository creation
-- Basic Phaser.js configuration
-- Game canvas and scene structure
-- Initial responsive design implementation
+- Initial project scaffolding: `index.html`, `styles.css`, `main.js` (placeholder).
+- Core project files: `.gitignore`, `package.json`.
+- Established project folder structure: `src/` with subdirectories for `assets`, `scenes`, `config`, `utils`, and `README.md` files for each.
+- Installed initial npm dependencies including Phaser, Webpack, Webpack CLI, Webpack Dev Server, Babel, HTML Webpack Plugin, and Copy Webpack Plugin.
+- Configured Webpack (`webpack.config.js`) for development build, including:
+  - Entry point set to `src/main.js`.
+  - Output to `dist/bundle.js`.
+  - `HtmlWebpackPlugin` to generate `index.html` from template.
+  - `CopyWebpackPlugin` to copy assets and `styles.css` to `dist`.
+  - `webpack-dev-server` with hot reloading.
+  - Babel for ES6+ transpilation.
+- Created a basic Phaser game instance in `src/main.js` with `BootScene` and `GameScene`.
+- Updated `index.html` to include a `div` with `id="game-container"` for Phaser.
+- Successfully started the development server.
 
 ## [0.2.0] - YYYY-MM-DD (Future)
 ### Added

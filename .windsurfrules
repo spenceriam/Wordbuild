@@ -2,6 +2,16 @@
 
 This document outlines the guidelines and operational rules for AI agents assisting with the Wordbuild project. These rules are designed to ensure consistent, high-quality code generation and support throughout the development process.
 
+KEY RULES TO REMEMBER FOR PHASE 1:
+1. Always review the @wordbuild-mvp-prd.md file for the MVP roadmap and requirements
+2. Always review the @wordbuild-todo-phase1.md file for the TODO list and tasks
+3. Always review the @wordbuild-ui-ux.md file for the UI/UX design and requirements
+4. Once code is complete, do not make any changes to the code unless asked to by the user or if it has a code breaking bug
+5. Always test by running the web app and ensuring that it works as expected in the terminal then present the URL to the user to test
+6. Always update the @wordbuild-changelog.md after each code changes with a date and time stamp by checking the current date and time.  Version number will start at 0.1.0 and increment by the middle by 1 until it reaches 9.  Then increment the first number by 1 and reset the middle number to 0.  Then increment the last number by 1 until it reaches 9.  Then increment the first number by 1 and reset the middle and last number to 0.  This will continue until the version number reaches 9.9.9.  When that does happen, ask the user if a major version number should be implemented
+7. Always do a git commit after each code changes and an immediate push back to main branch
+
+
 ## 1. Code Generation Rules
 
 ### 1.1 Code Structure and Style
