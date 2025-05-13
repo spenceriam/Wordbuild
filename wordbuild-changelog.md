@@ -7,10 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2025-05-12
 ### Added
-- Initial project structure
-- Basic documentation files
-- Project requirements documentation
+- Responsive layout improvements in `styles.css`.
+- Dedicated `PreloadScene.js` with a visual loading bar.
+- Placeholder `MainMenuScene.js` with a title and interactive "Start Game" button.
+- `GameScene.js` as a separate file with a placeholder and back-to-menu button.
+- `BootScene.js` as a separate file, transitioning to `PreloadScene`.
+- Centralized Phaser game configuration in `src/config/gameConfig.js`, including:
+  - Setup for Arcade Physics.
+  - Phaser Scale Manager for `FIT` mode and `CENTER_BOTH` auto-centering.
+  - Defined min/max responsive scaling dimensions.
+  - Scene registration for `BootScene`, `PreloadScene`, `MainMenuScene`, and `GameScene`.
+- Updated `src/main.js` to use the new `gameConfig` and removed inline scene definitions.
 
 ## [0.1.0] - 2025-05-12
 ### Added

@@ -3,4 +3,16 @@ body {
     font-family: 'Exo 2', sans-serif;
     background-color: #1A2238;
     color: #F8F9FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrollbars from canvas */
+}
+
+#game-container {
+    /* The canvas size will be controlled by Phaser's Scale Manager */
+    /* We can add a border or shadow here if desired for visual separation */
+    border: 2px solid #4ECDC4; /* Example border using a UI accent color */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
