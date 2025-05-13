@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.5] - 2025-05-12
+### Added
+- Created `src/gameObjects` directory.
+- Defined `LetterBlock` class in `src/gameObjects/LetterBlock.js`, extending `Phaser.Physics.Arcade.Sprite`.
+- `LetterBlock` includes basic physics (bounce, world bounds) and displays its assigned letter using the 'Rubik' font.
+- Implemented collision detection between `LetterBlock` instances and the platform in `GameScene`.
+- Added a single test `LetterBlock` ('W') to `GameScene` to demonstrate falling and collision.
+- Added an `update` method to `LetterBlock` to keep the letter text centered during movement.
+- Added a safe `destroy` method to `LetterBlock` to clean up the letter text.
+
 ## [0.1.4] - 2025-05-12
 ### Added
 - Created placeholder image files for `platform.png` and `letter_block.png` in `src/assets/images/`.
