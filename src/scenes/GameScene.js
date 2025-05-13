@@ -1,9 +1,14 @@
 import Phaser from 'phaser';
 import LetterBlock from '../gameObjects/LetterBlock'; // Import the LetterBlock class
 
+const PLATFORM_SPEED = 350; // Define platform speed
+
 export default class GameScene extends Phaser.Scene {
     constructor() {
         super({ key: 'GameScene' });
+        this.platform = null; // Initialize platform variable
+        this.cursors = null; // Initialize cursors variable
+        this.testLetter = null; // Initialize testLetter variable
     }
 
     preload() {
@@ -17,13 +22,17 @@ export default class GameScene extends Phaser.Scene {
         // Get game dimensions
         const { width, height } = this.sys.game.config;
 
-        // Add platform - positioned at bottom center
-        // Since it's physics-enabled, its origin is (0.5, 0.5) by default
-        this.platform = this.physics.add.staticImage(width / 2, height - 50, 'platform');
-        // You might need to adjust the Y position depending on the actual platform image height
+        // --- Platform Setup ---
+        // Change from staticImage to sprite for movement
+        this.platform = this.physics.add.sprite(width / 2, height - 50, 'platform');
+        this.platform.setImmovable(true); // Makes blocks collide solid with it
+        this.platform.body.allowGravity = false; // Platform doesn't fall
+        this.platform.setCollideWorldBounds(true); // Keep platform on screen
 
         // Optionally, scale the platform if needed (example)
-        // this.platform.setScale(2).refreshBody(); // refreshBody updates the physics body after scaling a static object
+        // this.platform.setScale(2);
+        // Note: setImmovable needs the body size to be correct, scaling affects this.
+        // If scaled, might need body size adjustment: this.platform.body.setSize(width, height, center_x, center_y);
 
         // Create a single LetterBlock instance
         // Spawn it near the top center
@@ -47,10 +56,49 @@ export default class GameScene extends Phaser.Scene {
         backButton.on('pointerdown', () => {
             this.scene.start('MainMenuScene');
         });
+
+        // Initialize keyboard controls
+        this.cursors = this.input.keyboard.createCursorKeys();
+
+        // --- Touch Controls Setup ---
+        this.input.on('pointerdown', (pointer) => {
+            this.handlePointerMove(pointer);
+        });
+        this.input.on('pointermove', (pointer) => {
+            if (pointer.isDown) {
+                this.handlePointerMove(pointer);
+            }
+        });
+        this.input.on('pointerup', (pointer) => {
+            // Stop platform movement when touch/mouse is released
+            this.platform.setVelocityX(0);
+        });
+    }
+
+    // Helper function to handle touch/mouse movement
+    handlePointerMove(pointer) {
+        const screenWidth = this.cameras.main.width;
+        if (pointer.x < screenWidth / 2) {
+            // Touched/clicked left half
+            this.platform.setVelocityX(-PLATFORM_SPEED);
+        } else {
+            // Touched/clicked right half
+            this.platform.setVelocityX(PLATFORM_SPEED);
+        }
     }
 
     update(time, delta) {
-        // Game loop logic goes here
+        // -- Platform Movement (Keyboard) --
+        // Keyboard controls override touch if keys are pressed
+        if (this.cursors.left.isDown) {
+            this.platform.setVelocityX(-PLATFORM_SPEED);
+        } else if (this.cursors.right.isDown) {
+            this.platform.setVelocityX(PLATFORM_SPEED);
+        } else if (!this.input.activePointer.isDown) {
+            // Only stop if keyboard isn't active AND pointer isn't down
+            this.platform.setVelocityX(0);
+        }
+
         // Ensure LetterBlock's update is called if it needs continuous updates (like text positioning)
         if (this.testLetter && this.testLetter.active) {
             this.testLetter.update();

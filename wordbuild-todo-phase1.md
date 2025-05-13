@@ -2,7 +2,7 @@
 
 This document outlines the specific tasks required to complete the Minimum Viable Product (MVP) version of Wordbuild.
 
-## Week 1: Project Setup & Foundation
+## Part 1: Project Setup & Foundation
 
 ### Environment Setup
 - [X] Create GitHub repository with appropriate .gitignore
@@ -29,13 +29,13 @@ This document outlines the specific tasks required to complete the Minimum Viabl
 - [X] Set up collision detection system
 - [X] Create basic game loop
 
-## Week 2: Core Gameplay Implementation
+## Part 2: Core Gameplay Implementation
 
 ### Platform Mechanics
-- [ ] Implement platform movement (keyboard/mouse)
-- [ ] Add touch controls for mobile
-- [ ] Create platform boundaries
-- [ ] Implement platform physics properties
+- [X] Implement platform movement (keyboard/mouse)
+- [X] Add touch controls for mobile
+- [X] Create platform boundaries
+- [X] Implement platform physics properties
 - [ ] Add visual feedback for platform movement
 
 ### Letter System
@@ -52,7 +52,7 @@ This document outlines the specific tasks required to complete the Minimum Viabl
 - [ ] Implement letter attachment to beam
 - [ ] Add letter placement in word frame
 
-## Week 3: Game Logic & Basic UI
+## Part 3: Game Logic & Basic UI
 
 ### Word Mechanics
 - [ ] Create word frame with placeholders
@@ -81,7 +81,7 @@ This document outlines the specific tasks required to complete the Minimum Viabl
 - [ ] Add basic settings toggle (sound on/off)
 - [ ] Design temporary placeholder graphics
 
-## Week 4: User Experience & Testing
+## Part 4: User Experience & Testing
 
 ### Game Experience
 - [ ] Implement basic animation system
@@ -110,7 +110,7 @@ This document outlines the specific tasks required to complete the Minimum Viabl
 - [ ] Optimize game parameters
 - [ ] Document known issues
 
-## Week 5: Polish & Launch Preparation
+## Part 5: Polish & Launch Preparation
 
 ### Game Polish
 - [ ] Improve visual feedback

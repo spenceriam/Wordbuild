@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2025-05-12
+### Added
+- Implemented basic touch controls for platform movement in `GameScene` (touch left/right half of screen).
+- Added `pointerdown`, `pointermove`, and `pointerup` listeners.
+- Created `handlePointerMove` helper function.
+- Updated `update` loop logic to handle stopping platform when neither keyboard nor touch is active.
+### Changed
+- Marked platform boundaries and physics properties tasks as complete in TODO list (covered by existing implementation for MVP).
+
+## [0.2.0] - 2025-05-12
+### Added
+- Implemented platform movement in `GameScene` using left/right arrow keys.
+- Changed platform from `staticImage` to `sprite` with `immovable` and `allowGravity=false` properties.
+- Added keyboard cursor key listener (`this.cursors`).
+- Updated platform velocity in `update` loop based on key presses.
+- Defined `PLATFORM_SPEED` constant.
+### Changed
+- Renamed "Week" to "Part" in `wordbuild-todo-phase1.md`.
+
 ## [0.1.5] - 2025-05-12
 ### Added
 - Created `src/gameObjects` directory.
@@ -65,14 +84,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Created a basic Phaser game instance in `src/main.js` with `BootScene` and `GameScene`.
 - Updated `index.html` to include a `div` with `id="game-container"` for Phaser.
 - Successfully started the development server.
-
-## [0.2.0] - YYYY-MM-DD (Future)
-### Added
-- Platform movement implementation
-- Letter physics system
-- Basic collision detection
-- Tractor beam functionality
-- Word frame with placeholders
 
 ## [0.3.0] - YYYY-MM-DD (Future)
 ### Added
