@@ -4,7 +4,7 @@
 import Phaser from 'phaser';
 
 export default class LetterBlock extends Phaser.Physics.Arcade.Sprite {
-    constructor(scene, x, y, letter = 'A') {
+    constructor(scene, x, y, letter = 'A', velocityX = 0, velocityY = 0) {
         // Call the parent constructor (Sprite)
         super(scene, x, y, 'letter_block'); // Use the loaded asset key
 
@@ -18,6 +18,9 @@ export default class LetterBlock extends Phaser.Physics.Arcade.Sprite {
         // Optional: Set physics properties (e.g., gravity, bounce)
         this.setBounce(0.3); // Add a slight bounce
         this.setCollideWorldBounds(true); // Keep it within the game world
+
+        // Apply initial velocity so blocks move immediately on spawn
+        this.setVelocity(velocityX, velocityY);
 
         // Add the letter text on top of the block
         // Use Rubik font as specified in wordbuild-ui-ux.md for letters
