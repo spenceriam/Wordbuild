@@ -12,6 +12,7 @@ The core mechanics blend:
 - **Arcade Action**: Control your platform and time your letter captures
 - **Word Puzzles**: Form words by capturing the right letters
 - **Increasing Challenge**: Face progressively longer words and faster letter drops
+- **Arkanoid Inspiration**: Letters bounce across the screen like classic brick-breaker games
 
 ## ⚡ Current Status: Phase 1 Development (MVP)
 

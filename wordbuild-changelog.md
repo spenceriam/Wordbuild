@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2025-05-17
+### Added
+- Alternating left-to-right and right-to-left falling letters with bounce logic.
+- Simple transporter mechanic for capturing letters and filling the puzzle word.
+- Centralized Phaser initialization in `src/main.js` using `gameConfig`.
+
 ## [0.8.0] - 2025-05-12
 ### Added
 - Implemented basic touch controls for platform movement in `GameScene` (touch left/right half of screen).

@@ -21,9 +21,11 @@ Wordbuild is an engaging web-based word game that combines arcade action with wo
 ### 2.1 Gameplay Mechanics
 - **Platform Control**: Player controls a platform with a tractor beam/grappling hook
 - **Letter Capture**: Tractor beam can capture falling letters
+- **Transporter**: Captured letters are moved into the puzzle slots
 - **Word Building**: Letters must be placed in the correct positions to form words
 - **Timing Element**: Letters fall at increasing speeds, requiring quick reflexes
 - **Progressive Difficulty**: Words become longer and letter speeds increase
+- **Arkanoid-Style Movement**: Letters bounce horizontally as they drop
 - **Lives System**: Players have limited attempts per session
 
 ### 2.2 Game Elements
