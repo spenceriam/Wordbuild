@@ -2,7 +2,7 @@
   "name": "wordbuild",
   "version": "0.1.0",
   "description": "Wordbuild Game",
-  "main": "main.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "start": "webpack serve --open",
     "build": "webpack --mode production"
